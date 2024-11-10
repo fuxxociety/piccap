@@ -10,6 +10,7 @@ env:
   TOOLCHAIN_SHA256: 32816626e99fb34922a49d0c639f7c8a30356fffb222372d4823027f1382f640
   TOOLCHAIN_DIR: /opt/arm-webos-linux-gnueabi_sdk-buildroot
   CMAKE_TOOLCHAIN_FILE: /opt/arm-webos-linux-gnueabi_sdk-buildroot/share/buildroot/toolchainfile.cmake
+  DCMAKE_TOOLCHAIN_FILE: $CMAKE_TOOLCHAIN_FILE
 
 jobs:
   build-all:
