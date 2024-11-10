@@ -45,8 +45,11 @@ jobs:
       run: |
         ./relocate-sdk.sh
 
+    - name: Create Build directory
+      run: cmake -E make_directory ${{github.workspace}}/hyperion-webos/build
+
     - name: Build hyperion-webos
-      working-directory: ${{github.workspace}}/build
+      working-directory: ${{github.workspace}}/hyperion-webos/build
       shell: bash
       run: cmake -DCMAKE_BUILD_TYPE='Release' -DCMAKE_TOOLCHAIN_FILE=$TOOLCHAIN_FILE .. && make hyperion-webos gm_backend halgal_backend dile_vt_backend vtcapture_backend
 
