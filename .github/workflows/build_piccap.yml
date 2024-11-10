@@ -48,20 +48,20 @@ jobs:
     - name: Create Build directory
       run: cmake -E make_directory ${{github.workspace}}/hyperion-webos/build
 
-    - name: Build hyperion-webos
-      working-directory: ${{github.workspace}}/hyperion-webos/build
-      shell: bash
-      run: cmake -DCMAKE_BUILD_TYPE='Release' -DCMAKE_TOOLCHAIN_FILE=$TOOLCHAIN_FILE .. && make hyperion-webos gm_backend halgal_backend dile_vt_backend vtcapture_backend
-
     - name: Check CMAKE Version
       run: which cmake && cmake --version
 
+    - name: Build hyperion-webos
+      working-directory: ${{github.workspace}}/hyperion-webos/build
+      shell: bash
+      run: pwd && cmake -DCMAKE_BUILD_TYPE='Release' -DCMAKE_TOOLCHAIN_FILE=$TOOLCHAIN_FILE .. && make hyperion-webos gm_backend halgal_backend dile_vt_backend vtcapture_backend
+
     - name: Build PicCap, hyperion-webos and copy files
       working-directory: ${{github.workspace}}
-      run: npm run-script build-all
+      run: pwd && npm run-script build-all
 
     - name: Package Frontend and Service
-      run: npm run-script package
+      run: pwd && npm run-script package
 
     - name: List files
       run: find . && find ./build
