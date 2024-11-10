@@ -11,6 +11,7 @@ env:
   TOOLCHAIN_DIR: /opt/arm-webos-linux-gnueabi_sdk-buildroot
   CMAKE_TOOLCHAIN_FILE: /opt/arm-webos-linux-gnueabi_sdk-buildroot/share/buildroot/toolchainfile.cmake
   DCMAKE_TOOLCHAIN_FILE: $CMAKE_TOOLCHAIN_FILE
+  DCMAKE_BUILD_TYPE: 'Release'
 
 jobs:
   build-all:
