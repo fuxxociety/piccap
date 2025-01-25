@@ -26,7 +26,7 @@ jobs:
          node-version: 18
 
     - name: Install webOS CLI
-      run: sudo npm install --location=global @webosose/ares-cli
+      run: sudo npm install --location=global @webos-tools/cli
 
     - name: Install dependencies
       working-directory: ${{github.workspace}}
